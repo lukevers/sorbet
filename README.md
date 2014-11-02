@@ -1,5 +1,7 @@
 # Sorbet
 
+Sorbet is an administrative panel for vanilla minecraft servers. It is currently a work in progress, but feel free to try it out and/or contribute!
+
 # Building
 
 #### 0. Before You Build
