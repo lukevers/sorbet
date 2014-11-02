@@ -1,0 +1,49 @@
+{{ define "index" }}
+	{{ template "header" }}
+
+	{{ template "navigation" }}
+
+	<div class="content">
+		<div class="container-fluid max">
+			<div class="row">
+				<div class="col-lg-3 col-md-6 col-xs-12">
+					<div class="server-info">
+						<div class="stat-icon">
+							<i class="fa fa-database"></i>
+						</div>
+						todo
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 col-xs-12">
+					<div class="server-info red">
+						<div class="stat-icon red">
+							<i class="fa fa-times"></i>
+						</div>
+						todo
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 col-xs-12">
+					<div class="server-info green">
+						<div class="stat-icon green">
+							<i class="fa fa-check"></i>
+						</div>
+						todo
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 col-xs-12">
+					<div class="server-info green">
+						<div class="stat-icon green">
+							<i class="fa fa-link"></i>
+						</div>
+						todo
+					</div>
+				</div>
+			</div>
+
+
+		<!-- close -->
+		</div>
+	</div>
+
+	{{ template "footer" }}
+{{ end }}
