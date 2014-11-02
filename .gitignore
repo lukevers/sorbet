@@ -22,3 +22,15 @@ _testmain.go
 *.exe
 *.test
 *.prof
+
+sorbet
+*.db
+
+FontAwesome.*
+fontawesome-*
+
+node_modules
+bower_components
+
+# Sessions
+app/sessions/session_*
