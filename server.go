@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/bearbin/mcgorcon"
+	"github.com/lukevers/mcgorcon"
 	"time"
 )
 
@@ -34,9 +34,22 @@ type Server struct {
 
 // Initialize Rcon for an initalized server.
 func (s *Server) initalizeRcon() {
-	s.rcon = mcgorcon.Dial(s.Host, s.Port, s.Password)
+	s.rcon, err = mcgorcon.Dial(s.Host, s.Port, s.Password)
+	if err != nil {
+		s.rcon = mcgorcon.Client{}
+	}
 }
 
 func (s *Server) Cmd(command string) string {
-	return s.rcon.SendCommand(command)
+	tmp := mcgorcon.Client{}
+	if s.rcon != tmp {
+		response, err := s.rcon.SendCommand(command)
+		if err != nil {
+			return ""
+		}
+
+		return response
+	}
+
+	return ""
 }
