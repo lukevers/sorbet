@@ -20,7 +20,7 @@ var store = sessions.NewFilesystemStore(
 )
 
 type User struct {
-	// ID is an int64 that is a users identification
+	// ID is a uint64 that is a users identification
 	// number.
 	Id uint64
 

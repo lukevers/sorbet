@@ -10,8 +10,9 @@ import (
 )
 
 var (
-	err   error
-	users []*User
+	err     error
+	users   []*User
+	servers []*Server
 )
 
 var templates = template.Must(template.New("").Funcs(AddTemplateFunctions(nil)).ParseGlob("app/views/*"))
@@ -92,6 +93,14 @@ func main() {
 
 	// Get all users
 	db.Find(&users, &User{})
+
+	// Get first server
+	db.Find(&servers, &Server{})
+
+	// Initialize servers
+	for i := range servers {
+		servers[i].initalizeRcon()
+	}
 
 	// Start web server
 	golem.Infof("Starting webserver on port %s", strconv.Itoa(*portFlag))

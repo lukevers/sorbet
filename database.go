@@ -65,15 +65,11 @@ func initalizeDB() {
 		golem.Verb("Running database auto migrate")
 	}
 
-	db.AutoMigrate(User{})
+	db.AutoMigrate(User{}, Server{})
 
 	// Check to see if we have any users created.
 	// If we don't have any users at all then we
 	// need to make a default user.
-	if *debugFlag {
-		golem.Verb("Checking if any users exist")
-	}
-
 	db.FirstOrCreate(&User{
 		Username:    "admin",
 		Password:    HashPassword("admin"),
@@ -81,4 +77,13 @@ func initalizeDB() {
 		Twofa:       false,
 		TwofaSecret: "",
 	}, &User{})
+
+	// Check to see if we have a server yet. If
+	// we don't have a server, then we need to 
+	// make that server!
+	db.FirstOrCreate(&Server{
+		Host:    "localhost",
+		Port:     25575,
+		Password: "password",
+	}, &Server{})
 }

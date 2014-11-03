@@ -20,8 +20,8 @@ func UnixTime(time *time.Time) int64 {
 // Add func to templates
 func AddTemplateFunctions(req *http.Request) template.FuncMap {
 	return template.FuncMap{
-		"IsAdmin":  func() bool { return IsAdmin(req) },
-		"UnixTime": func(time *time.Time) int64 { return UnixTime(time) },
+		"IsAdmin":     func() bool { return IsAdmin(req) },
+		"UnixTime":    func(time *time.Time) int64 { return UnixTime(time) },
 	}
 }
 
